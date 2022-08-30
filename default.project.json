@@ -1,0 +1,20 @@
+{
+    "name": "matchmaking system with knit",
+    "tree": {
+      "$className": "DataModel",
+  
+      "ServerScriptService": {
+        "$path": "src/ServerScriptService"
+      },
+  
+      "ServerStorage": {
+        "$path": "src/ServerStorage"
+      },
+  
+      "ReplicatedStorage": {
+        "modules" : {
+          "$path": "src/ReplicatedStorage"
+        }
+      }
+    }
+  }
