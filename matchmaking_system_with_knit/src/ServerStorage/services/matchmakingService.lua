@@ -84,36 +84,34 @@ local function _joinGame()
 end
 
 function matchmakingService:KnitStart()
-	print("A")
-	for _ , v in pairs(players:GetPlayers()) do
-	if table.find(self.inQueue , v.UserId) then continue end
-
-	matchmakingService:AddToQueue(v)
+	players.PlayerAdded:Connect(function(player)
+		self:AddToQueue(player)
+	end)
 end
-	
-	--local commands = {
-	--	"joinqueue",
-	--	"leavequeue",
-	--}
 
-	--local prefix = "/"
+--local commands = {
+--	"joinqueue",
+--	"leavequeue",
+--}
 
-	-- players.PlayerAdded:Connect(function(player)
-	--     player.Chatted:Connect(function(message)
-	--         local splits = message:split(" ")
-	--         splits[1] = splits[1]:lower()
+--local prefix = "/"
 
-	--         local index = table.find(commands , splits[1]:sub(2 , #message))
-	--         if not index then return end
+-- players.PlayerAdded:Connect(function(player)
+--     player.Chatted:Connect(function(message)
+--         local splits = message:split(" ")
+--         splits[1] = splits[1]:lower()
 
-	--         local command = prefix..commands[index]
-	--         if command ~= splits[1] then return end
+--         local index = table.find(commands , splits[1]:sub(2 , #message))
+--         if not index then return end
 
-	--         local functionToCall = index == 1 and matchmakingService.AddToQueue or matchmakingService.RemoveFromQueue
-	--         functionToCall(matchmakingService , player)
-	--     end)
-	-- end)
-end
+--         local command = prefix..commands[index]
+--         if command ~= splits[1] then return end
+
+--         local functionToCall = index == 1 and matchmakingService.AddToQueue or matchmakingService.RemoveFromQueue
+--         functionToCall(matchmakingService , player)
+--     end)
+-- end)
+--end
 
 function matchmakingService:RemoveFromQueue(userId)
 	if typeof(userId) == "Instance" then userId = userId.UserId end
