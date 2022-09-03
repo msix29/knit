@@ -83,6 +83,37 @@ local function _joinGame()
 	end)
 end
 
+function matchmakingService:KnitStart()
+	for _ , v in pairs(players:GetPlayers()) do
+	if table.find(self.inQueue , v.UserId) then continue end
+
+	matchmakingService:AddToQueue(v)
+end
+	
+	--local commands = {
+	--	"joinqueue",
+	--	"leavequeue",
+	--}
+
+	--local prefix = "/"
+
+	-- players.PlayerAdded:Connect(function(player)
+	--     player.Chatted:Connect(function(message)
+	--         local splits = message:split(" ")
+	--         splits[1] = splits[1]:lower()
+
+	--         local index = table.find(commands , splits[1]:sub(2 , #message))
+	--         if not index then return end
+
+	--         local command = prefix..commands[index]
+	--         if command ~= splits[1] then return end
+
+	--         local functionToCall = index == 1 and matchmakingService.AddToQueue or matchmakingService.RemoveFromQueue
+	--         functionToCall(matchmakingService , player)
+	--     end)
+	-- end)
+end
+
 function matchmakingService:RemoveFromQueue(userId)
 	if typeof(userId) == "Instance" then userId = userId.UserId end
 	table.remove(self.inQueue , table.find(self.inQueue , userId))
@@ -111,32 +142,5 @@ end
 function matchmakingService.Client:RemoveFromQueue(...)
 	self.Server:RemoveFromQueue(...)
 end
-
-players.PlayerAdded:Connect(function(player)
-	matchmakingService:AddToQueue(player)
-end)
-
---local commands = {
---	"joinqueue",
---	"leavequeue",
---}
-
---local prefix = "/"
-
--- players.PlayerAdded:Connect(function(player)
---     player.Chatted:Connect(function(message)
---         local splits = message:split(" ")
---         splits[1] = splits[1]:lower()
-
---         local index = table.find(commands , splits[1]:sub(2 , #message))
---         if not index then return end
-
---         local command = prefix..commands[index]
---         if command ~= splits[1] then return end
-
---         local functionToCall = index == 1 and matchmakingService.AddToQueue or matchmakingService.RemoveFromQueue
---         functionToCall(matchmakingService , player)
---     end)
--- end)
 
 return matchmakingService
