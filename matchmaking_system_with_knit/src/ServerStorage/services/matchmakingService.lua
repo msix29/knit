@@ -139,13 +139,11 @@ function matchmakingService.Client:GetStatus()
 end
 
 function matchmakingService.Client:AddToQueue(...)
-	print(...)
 	self.Server:AddToQueue(...)
 	return
 end
 
 function matchmakingService.Client:RemoveFromQueue(...)
-	print(...)
 	self.Server:RemoveFromQueue(...)
 end
 
