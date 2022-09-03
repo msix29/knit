@@ -84,6 +84,7 @@ local function _joinGame()
 end
 
 function matchmakingService:KnitStart()
+	print("A")
 	for _ , v in pairs(players:GetPlayers()) do
 	if table.find(self.inQueue , v.UserId) then continue end
 
