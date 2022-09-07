@@ -3,7 +3,7 @@ local players = game:GetService("Players")
 local serverStorage = game:GetService("ServerStorage")
 local runService = game:GetService("RunService")
 
-local winningLogicsModule = require(serverStorage.winningLogic)
+local winningLogicsModule = require(serverStorage.modules.winningLogic)
 local knit = require(replicatedStorage.modules.packages.Knit)
 
 local maps = {
