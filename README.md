@@ -1,4 +1,4 @@
-### Matchmaking system with the use of knit.
+### Matchmaking system fully made with knit.
 All the scripts.
 
 Feel free to use it and edit it to your likings but please note that this system wasn't designed for a full game, it's just a demo.
