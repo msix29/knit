@@ -1,8 +1,5 @@
 ### Matchmaking system fully made with knit.
-All the scripts.
-
 Feel free to use it and edit it to your likings but please note that this system wasn't designed for a full game, it's just a demo.
-
 ## Using the system for testing.
 # With Rojo
 Just download the file "matchmaking_system_with_knit" and put it as your project file, after it, either build a project file with it or just run rojo to add these files
